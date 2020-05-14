@@ -1,24 +1,8 @@
 <section class="hero is-primary">
   <div class="hero-body">
       <h1 class="title">
-        Create new tweet!
+        Edit tweet!
       </h1>
   </div>
 </section>
-<div class="field">
-  <div class="control">
-<%= form_with model: @tweet, local: true do |form| %>
-    <%= form.label :title %>
-    <%= form.text_field :title, class:"input is-rounded", border: "50px" %>
-
-  <p>
-    <%= form.label :body %>
-    <%= form.text_area :body, class: "input is-rounded" %>
-  </p>
-   </div>
-</div>
-
-  <p>
-    <%= form.submit 'Save', class: "button is-success" %>
-  </p>
-<% end %>
+<%= render 'form', tweet: @tweet, submit: 'Save Changes'  %>

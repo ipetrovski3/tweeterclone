@@ -1,0 +1,33 @@
+<% if tweet.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:
+  </h2>
+
+  <ul>
+    <% tweet.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<dir>
+<%= form_with model: tweet, local: true do |form| %>
+    <%= form.label :title, class:"label" %>
+    <%= form.text_field :title, class:"input is-rounded" %>
+
+  <p>
+    <%= form.label :body, class:"label" %>
+    <%= form.text_area :body, class: "input is-rounded" %>
+  </p>
+<dir>
+  <p>
+    <%= form.submit submit, class: "button is-success is-info" %>
+    <button class="button is-link is-outlined is-info"><%= link_to 'Cancel', root_path %></button>
+  </p>
+<% end %>
+
+</dir>
+</dir>
+

@@ -8,12 +8,14 @@
   </div>
 </section>
 
+<dir>
 <button class="button is-success is-rounded"><%= link_to 'New Tweet', new_tweet_path %></button>
-
+</dir>
 <div class="columns">
   <div class="column">
+  <ul class="label"> You have <%= pluralize(Tweet.count, "Tweet") %>  </ul>
    <% @tweets.each do |tweet| %>
-    <ul> <%= link_to tweet.title, tweet_path(tweet) %> </ul>
+    <ul> <%= link_to tweet.title, tweet_path(tweet), class:"input is-rounded", size:"30px" %> </ul>
     <% end %>
   </div>
 </div>
