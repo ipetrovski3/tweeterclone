@@ -1,0 +1,19 @@
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        All Tweets!
+      </h1>
+    </div>
+  </div>
+</section>
+
+<button class="button is-success is-rounded"><%= link_to 'New Tweet', new_tweet_path %></button>
+
+<div class="columns">
+  <div class="column">
+   <% @tweets.each do |tweet| %>
+    <ul> <%= link_to tweet.title, tweet_path(tweet) %> </ul>
+    <% end %>
+  </div>
+</div>
