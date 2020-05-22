@@ -1,45 +1,31 @@
-<div class="box">
-  <article class="media">
-    <div class="media-left">
-    </div>
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <strong><%= @tweet.title %></strong>
-          <br>
-          <%= @tweet.body %>
+<br>
+<div class="columns is-mobile">
+  <div class="column is-half is-offset-one-quarter">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title title">
+        <strong><%= @tweet.title %></strong>
         </p>
+      </header>
+    <div class="card-content">
+      <div class="content">
+        <%= @tweet.body %>
       </div>
-      <nav class="level is-mobile">
-        <div class="level-left">
-          <a class="level-item" aria-label="reply">
-            <span class="icon is-small">
-              <i class="fas fa-reply" aria-hidden="true"></i>
-            </span>
-          </a>
-          <a class="level-item" aria-label="retweet">
-            <span class="icon is-small">
-              <i class="fas fa-retweet" aria-hidden="true"></i>
-            </span>
-          </a>
-          <a class="level-item" aria-label="like">
-            <span class="icon is-small">
-              <i class="fas fa-heart" aria-hidden="true"></i>
-            </span>
-          </a>
-        </div>
-      </nav>
     </div>
-  </article>
+  <footer class="card-footer">
+    <span>
+      <i class="fas fa-clock"></i>
+      <%= @tweet.created_at.strftime("%d %b %Y, %H:%M") %>
+    </span>
+  </footer>
 </div>
-
-<div class="buttons">
-  <button class="button is-success is-info"><%= link_to 'OK', root_path %></button>
-  <button class="button is-link"><%= link_to 'Edit', edit_tweet_path %></button>
-  <button class="button is-danger" id="myBtn">Delete</button>
+<br>
+  <div class="buttons">
+    <button class="button is-success is-info"><%= link_to 'OK', root_path %></button>
+    <button class="button is-link"><%= link_to 'Edit', edit_tweet_path %></button>
+    <button class="button is-danger" id="myBtn">Delete</button>
+  </div>
 </div>
-
-
 
   <!-- The Modal -->
   <div class="modal fade" id="myModal">
