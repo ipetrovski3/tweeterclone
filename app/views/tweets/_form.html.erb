@@ -2,23 +2,25 @@
 
 
 
+<div class="columns is-half is-offset-one-quarter">
+  <div class="column is-half is-offset-one-quarter">
+    <%= form_with model: tweet, local: true do |form| %>
+        <%= form.label :title, class:"label" %>
+        <%= form.text_field :title, class:"input is-rounded" %>
+        <% tweet.errors.full_messages.each do |msg| %>
+        <p class="help is-danger"><%= msg %></p>
+                <% end %>
 
-<%= form_with model: tweet, local: true do |form| %>
-    <%= form.label :title, class:"label" %>
-    <%= form.text_field :title, class:"input is-rounded" %>
-    <% tweet.errors.full_messages.each do |msg| %>
-    <p class="help is-danger"><%= msg %></p>
-            <% end %>
+      <p>
+        <%= form.label :body, class:"label" %>
+        <%= form.text_area :body, class: "input is-rounded" %>
+      </p>
 
-  <p>
-    <%= form.label :body, class:"label" %>
-    <%= form.text_area :body, class: "input is-rounded" %>
-  </p>
-
-  <p>
-    <%= form.submit submit, class: "button is-success is-info" %>
-    <button class="button is-link is-outlined is-info"><%= link_to 'Cancel', root_path %></button>
-  </p>
-<% end %>
-
+      <p>
+        <%= form.submit submit, class: "button is-success is-info" %>
+        <button class="button is-link is-outlined is-info"><%= link_to 'Cancel', root_path %></button>
+      </p>
+    <% end %>
+  </div>
+</div>
 
