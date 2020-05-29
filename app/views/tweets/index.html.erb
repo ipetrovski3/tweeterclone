@@ -8,8 +8,7 @@
   </div>
 </section>
 <br>
-<button class="button is-success is-rounded"><%= link_to 'New Tweet', new_tweet_path %></button>
-<div class="columns is-half is-offset-one-quarter">
+<div class="columns is-multiple">
   <div class="column is-half is-offset-one-quarter">
     <ul class="label"> You have <%= pluralize(Tweet.count, "Tweet") %>  </ul>
     <% @tweets.each do |tweet| %>

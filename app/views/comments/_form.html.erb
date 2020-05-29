@@ -1,0 +1,28 @@
+<article class="media">
+  <div class="media-content">
+  <%= form_with model: [@tweet, @tweet.comments.build], local: true do |form|  %>
+  <div class="field">
+      <p class="control">
+           <%= form.label :commenter, class:"label" %>
+           <%= form.text_field :commenter, class: "input is-rounded", placeholder: "Your name Here!" %>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control">
+        <%= form.label :body, class:"label" %>
+        <%= form.text_area :body, class: "textarea", placeholder: "Your comment here!" %>
+      </p>
+    </div>
+    <nav class="level">
+      <div class="level-right">
+        <div class="level-item">
+          <label class="checkbox">
+        <%= form.submit "Comment", class: "button is-success is-info" %>
+          </label>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+</article>
