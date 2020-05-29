@@ -3,11 +3,21 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-a, a:visited, a:hover, a:active {
-  color: inherit;
+a, a:visited, a:active {
+  color: inherit !important;
+  text-decoration: none !important;
+  text-transform: none;
 }
+
 
 .field_with_errors input {
   border-color: #f14668;
 }
 
+.footer {
+ height: inherit;
+}
+
+.section {
+  background-color: rgb(222, 255, 209);
+}
