@@ -1,8 +1,8 @@
 <section class="hero is-primary">
-  <div class="hero-body">
+  <div class="hero-body has-text-centered">
     <div class="container">
       <h1 class="title">
-        All Tweets!
+        <strong> You have <%= pluralize(Tweet.count, "Tweet") %></strong>
       </h1>
     </div>
   </div>
@@ -10,7 +10,6 @@
 <br>
 <div class="columns is-multiple">
   <div class="column is-half is-offset-one-quarter">
-    <ul class="label"> You have <%= pluralize(Tweet.count, "Tweet") %>  </ul>
     <% @tweets.each do |tweet| %>
     <ul> <%= link_to tweet.title, tweet_path(tweet), class:"input is-rounded", size:"30px" %> </ul>
     <% end %>
