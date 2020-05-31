@@ -14,9 +14,9 @@
               <a class="level-item">
                 <span class="icon is-small"><i class="fas fa-edit"></i></span>
               </a>
-              <a class="level-item">
-                <span class="icon is-small"><i class="far fa-trash-alt"></i></span>
-              </a>
+              <%= link_to tweet_comment_path(comment.tweet, comment), class:"level-item", method: :delete, data: { confirm: "Are you sure?"} do %>
+              <span class="icon is-small"><i class="far fa-trash-alt"></i></span>
+              <% end  %>
             </div>
           </nav>
         </div>

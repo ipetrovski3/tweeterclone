@@ -1,6 +1,6 @@
 <article class="media">
   <div class="media-content">
-  <%= form_with model: [@tweet, @tweet.comments.build], local: true do |form|  %>
+  <%= form_with model: [tweet, comment], local: true do |form|  %>
   <div class="field">
       <p class="control">
            <%= form.label :commenter, class:"label" %>

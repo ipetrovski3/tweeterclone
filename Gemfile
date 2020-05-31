@@ -21,7 +21,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem "bulma-rails", "~> 0.8.0"
+gem 'bulma-rails', '~> 0.8.0'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'hirb', '~> 0.7.3'
 
