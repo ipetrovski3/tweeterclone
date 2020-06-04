@@ -15,6 +15,11 @@ class CommentsController < ApplicationController
     redirect_to comment.tweet
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+    @tweet = @comment.tweet
+  end
+
   private
 
   def comment_params
