@@ -1,11 +1,19 @@
 class CommentsController < ApplicationController
+
+  def new
+    @tweet = Tweet.find(params[:tweet_id])
+    @comment = @tweet.comments.build
+  end
+
   def create
-    tweet = Tweet.find(params[:tweet_id])
+    @tweet = Tweet.find(params[:tweet_id])
+    @comment = @tweet.comments.build(comment_params)
 
-    @comment = tweet.comments.build(comment_params)
-
-    @comment.save
-    redirect_to tweet
+     if @comment.save
+       redirect_to @tweet
+     else
+       render :new
+     end
   end
 
   def destroy
@@ -18,6 +26,17 @@ class CommentsController < ApplicationController
   def edit
     @comment = Comment.find(params[:id])
     @tweet = @comment.tweet
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    @tweet = @comment.tweet
+    
+    if @comment.update(comment_params)
+      redirect_to @tweet
+    else
+      render :edit
+    end
   end
 
   private

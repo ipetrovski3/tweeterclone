@@ -15,10 +15,8 @@
     </div>
     <nav class="level">
       <div class="level-right">
-        <div class="level-item">
-          <label class="checkbox">
-        <%= form.submit "Comment", class: "button is-success is-info" %>
-          </label>
+        <%= form.submit submit, class: "button is-success is-info" %>
+         <%= link_to 'Cancel', tweet_path(tweet), class: "button is-light" %>
           <% end %>
         </div>
       </div>
@@ -26,3 +24,4 @@
   </div>
 
 </article>
+

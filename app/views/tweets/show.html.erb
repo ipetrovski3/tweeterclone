@@ -4,7 +4,7 @@
   <% if @comments.count > 3  %>
     <article class="message is-small is-danger has-text-centered">
       <div class="message-body">
-        <%= "🔥🔥🔥 This tweet is very popular 🔥🔥🔥" %>
+        <strong><%= "🔥🔥🔥 This tweet is very popular 🔥🔥🔥" %></strong>
       </div>
     </article>
   <% end %>
@@ -13,8 +13,6 @@
 
     <h3 class="subtitle is-4">Comments:</h3>
     <%= render @comments %>
-
-    <%= render 'comments/form', tweet: @tweet, comment: @comment %>
 
    </div>
 </div>

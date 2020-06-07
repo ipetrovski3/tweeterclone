@@ -4,8 +4,9 @@
         <div class="media-content">
           <div class="content">
             <p>
-            <strong><%= comment.commenter %></strong> <small><%= time_ago_in_words(comment.created_at) %> ago</small>
-            <br>
+            <strong><%= comment.commenter %></strong> <small><%= time_ago_in_words(comment.created_at) %> ago </small>
+            </p>
+            <p>
             <%= comment.body %>
             </p>
           </div>

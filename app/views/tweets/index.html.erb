@@ -1,3 +1,5 @@
+<div class="columns is-multiline">
+<div class="column is-half is-offset-one-quarter">
 <section class="hero is-primary">
   <div class="hero-body has-text-centered">
     <div class="container">
@@ -8,13 +10,15 @@
   </div>
 </section>
 <br>
-<div class="columns is-multiple">
-  <div class="column is-half is-offset-one-quarter">
+
+
     <% @tweets.each do |tweet| %>
     <ul> <%= link_to tweet.title, tweet_path(tweet), class:"input is-rounded", size:"30px" %> </ul>
     <% end %>
   </div>
 </div>
+
+
 
 
 
