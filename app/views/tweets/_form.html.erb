@@ -7,7 +7,7 @@
     <%= form_with model: tweet, local: true do |form| %>
         <%= form.label :title, class:"label" %>
         <%= form.text_field :title, class:"input is-rounded", placeholder: "Place your title here"%>
-        <% tweet.errors.full_messages.each do |msg| %>
+        <% tweet.errors.full_messages.each_with_index do |msg, body| %>
         <p class="help is-danger"><%= msg %></p>
                 <% end %>
 
