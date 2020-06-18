@@ -1,20 +1,20 @@
 <div class="columns is-multiline">
-<div class="column is-half is-offset-one-quarter">
-<section class="hero is-primary">
-  <div class="hero-body has-text-centered">
-    <div class="container">
-      <h1 class="title">
-        <strong> You have <%= pluralize(Tweet.count, "Tweet") %></strong>
-      </h1>
-    </div>
-  </div>
-</section>
-<br>
-
-
+  <div class="column is-half is-offset-one-quarter">
+    <section class="hero is-primary">
+      <div class="hero-body has-text-centered">
+        <div class="container">
+          <h1 class="title">
+            <strong> You have <%= pluralize(Tweet.count, "Tweet") %></strong>
+          </h1>
+        </div>
+      </div>
+    </section>
+ <br>
     <% @tweets.each do |tweet| %>
-    <ul> <%= link_to tweet.title, tweet_path(tweet), class:"input is-rounded", size:"30px" %> </ul>
-    <% end %>
+     <ul> <div class="control has-icons-right"> <%= link_to tweet.title, tweet_path(tweet), class:"input is-rounded"%>
+      <span class="icon is-small is-right has-text-info">  <i class="fas fa-comments"></i>  <%= tweet.comments.count %></span> </ul>
+      <% end%>
+      </div>
   </div>
 </div>
 

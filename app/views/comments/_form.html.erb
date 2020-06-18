@@ -5,12 +5,22 @@
       <p class="control">
            <%= form.label :commenter, class:"label" %>
            <%= form.text_field :commenter, class: "input is-rounded", placeholder: "Your name Here!" %>
+            <% if comment.errors.any? %>
+              <% comment.errors.full_messages_for(:commenter).each do |msg| %>
+                  <p class="help is-danger"><%= msg %></p>
+              <% end %>
+            <% end %>
       </p>
     </div>
     <div class="field">
       <p class="control">
         <%= form.label :body, class:"label" %>
-        <%= form.text_area :body, class: "textarea", placeholder: "Your comment here!" %>
+        <%= form.text_field :body, class: "textarea is-rounded", placeholder: "Your comment here!" %>
+          <% if comment.errors.any? %>
+              <% comment.errors.full_messages_for(:body).each do |msg| %>
+                  <p class="help is-danger"><%= msg %></p>
+              <% end %>
+          <% end %>
       </p>
     </div>
     <nav class="level">
@@ -25,3 +35,8 @@
 
 </article>
 
+<% if comment.errors.any? %>
+        <% tweet.errors.full_messages_for(:commenter).each do |msg| %>
+        <p class="help is-danger"><%= msg %></p>
+                <% end %>
+                <% end %>
