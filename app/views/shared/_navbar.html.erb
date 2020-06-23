@@ -12,6 +12,13 @@
     <div class="navbar-item">
       <div class="buttons">
         <button class="button is-primary is-inverted"><%= link_to 'New Tweet', new_tweet_path %></button>
+        <% if logged_in? %>
+            <button class="button is-primary is-inverted"><%= link_to 'Logout', logout_path, method: :delete %></button>
+            <span class="tag is-info is-light mb-2"><%= current_user.name %></span>
+          <% else %>
+            <button class="button is-primary is-inverted"><%= link_to 'Login', login_path %></button>
+            <button class="button is-primary is-inverted"><%= link_to 'Sign Up', new_user_path %></button>
+        <% end %>
       </div>
     </div>
   </div>
