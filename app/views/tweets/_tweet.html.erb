@@ -18,8 +18,10 @@
                   <br>
         <div class="buttons">
           <button class="button is-success is-info"><%= link_to 'OK', root_path %></button>
+          <% if logged_in? && equal_with_current_user?(tweet.user) %>
           <button class="button is-link"><%= link_to 'Edit', edit_tweet_path %></button>
           <button class="button is-danger" id="myBtn">Delete</button>
+          <% end %>
           <button class="button is-light"><%= link_to 'New Comment', new_tweet_comment_path(@tweet) %></button>
         </div>
       </div>
