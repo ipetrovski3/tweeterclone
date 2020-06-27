@@ -22,7 +22,9 @@
           <button class="button is-link"><%= link_to 'Edit', edit_tweet_path %></button>
           <button class="button is-danger" id="myBtn">Delete</button>
           <% end %>
+          <% if logged_in? %>
           <button class="button is-light"><%= link_to 'New Comment', new_tweet_comment_path(@tweet) %></button>
+          <% end %>
         </div>
       </div>
     </div>

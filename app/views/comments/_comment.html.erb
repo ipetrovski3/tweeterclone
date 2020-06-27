@@ -4,12 +4,13 @@
         <div class="media-content">
           <div class="content">
             <p>
-            <strong><%= comment.commenter %></strong> <small><%= time_ago_in_words(comment.created_at) %> ago </small>
+            <strong><%= comment.user.name %></strong> <small><%= time_ago_in_words(comment.created_at) %> ago </small>
             </p>
             <p>
             <%= comment.body %>
             </p>
           </div>
+          <% if equal_with_current_user?(comment.user) %>
           <nav class="level is-mobile">
             <div class="level-left">
               <%= link_to edit_tweet_comment_path(comment.tweet, comment), class:"level-item" do %>
@@ -20,6 +21,7 @@
               <% end  %>
             </div>
           </nav>
+          <% end %>
         </div>
       </article>
     </div>

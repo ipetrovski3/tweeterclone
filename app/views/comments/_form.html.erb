@@ -3,13 +3,7 @@
   <%= form_with model: [tweet, comment], local: true do |form|  %>
   <div class="field">
       <p class="control">
-           <%= form.label :commenter, class:"label" %>
-           <%= form.text_field :commenter, class: "input is-rounded", placeholder: "Your name Here!" %>
-            <% if comment.errors.any? %>
-              <% comment.errors.full_messages_for(:commenter).each do |msg| %>
-                  <p class="help is-danger"><%= msg %></p>
-              <% end %>
-            <% end %>
+      <%= current_user.name %>
       </p>
     </div>
     <div class="field">
@@ -34,9 +28,3 @@
   </div>
 
 </article>
-
-<% if comment.errors.any? %>
-        <% tweet.errors.full_messages_for(:commenter).each do |msg| %>
-        <p class="help is-danger"><%= msg %></p>
-                <% end %>
-                <% end %>
