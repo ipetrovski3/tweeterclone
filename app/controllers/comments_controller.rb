@@ -12,16 +12,16 @@ class CommentsController < ApplicationController
     @comment = @tweet.comments.build(comment_params)
     @comment.user = current_user
 
-     if @comment.save
-       redirect_to @tweet
-     else
-       render :new
-     end
+    if @comment.save
+      redirect_to @tweet
+    else
+      render :new
+    end
   end
 
   def destroy
     session_notice(:danger, 'You must be logged in!') unless logged_in?
-    
+
     comment = Comment.find(params[:id])
     comment.destroy
 
