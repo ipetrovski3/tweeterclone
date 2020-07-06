@@ -9,17 +9,34 @@
   </div>
 
   <div class="navbar-end">
-    <div class="navbar-item">
-      <div class="buttons">
-        <% if logged_in? %>
-        <button class="button is-primary is-inverted"><%= link_to 'New Tweet', new_tweet_path %></button>
-            <button class="button is-primary is-inverted"><%= link_to 'Logout', logout_path, method: :delete %></button>
-            <span class="tag is-info is-light mb-2"><%= current_user.name %></span>
-          <% else %>
-            <button class="button is-primary is-inverted"><%= link_to 'Login', login_path %></button>
-            <button class="button is-primary is-inverted"><%= link_to 'Sign Up', new_user_path %></button>
+    <% if logged_in? %>
+      <%= link_to new_tweet_path do %>
+        <button class="button is-primary is-inverted navbar-item mr-3">New tweet <span class="icon is-small ml-1"><i class="fa fa-plus-circle" aria-hidden="true"></i></span></button>
+      <% end %>
+    <div class="navbar-item has-dropdown is-hoverable">
+      <%= link_to user_path(current_user) do %>
+        <div class="navbar-link"><%= current_user.name %><span class="icon is-small ml-1"><i class="fa fa-user" aria-hidden="true"></i></span></div>
+      <% end %>
+
+    <div class="navbar-dropdown">
+      <div class="navbar-item">
+        My tweets <span class="tag is-success is-light ml-1"><%= current_user.tweets.count %></span>
+      </div>
+      <div class="navbar-item">
+        Edit profile
+      </div>
+      <div class="navbar-item">
+        <%= link_to logout_path, method: :delete do %>
+          <p>Logout<span class="icon is-small has-text-danger ml-1"><i class="fa fa-window-close" aria-hidden="true"></i></span></p>
         <% end %>
       </div>
     </div>
+
+    <% else %>
+    <div class="buttons">
+      <button class="button is-primary is-inverted"><%= link_to 'Login', login_path %></button>
+      <button class="button is-primary is-inverted"><%= link_to 'Sign Up', new_user_path %></button>
+    </div>
+    <% end %>
   </div>
 </nav>
