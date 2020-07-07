@@ -23,11 +23,14 @@
         My tweets <span class="tag is-success is-light ml-1"><%= current_user.tweets.count %></span>
       </div>
       <div class="navbar-item">
-        Edit profile
+        <%= link_to edit_user_path(current_user) do %>
+          Edit Profile<span class="icon is-small has-text-info ml-1"><i class="fa fa-cog" aria-hidden="true"></i></span>
+        <% end %>
       </div>
+      <hr class="navbar-divider">
       <div class="navbar-item">
         <%= link_to logout_path, method: :delete do %>
-          <p>Logout<span class="icon is-small has-text-danger ml-1"><i class="fa fa-window-close" aria-hidden="true"></i></span></p>
+          Logout<span class="icon is-small has-text-danger ml-1"><i class="fa fa-window-close" aria-hidden="true"></i></span>
         <% end %>
       </div>
     </div>
