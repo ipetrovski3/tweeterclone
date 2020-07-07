@@ -3,7 +3,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :users
+  resources :users do
+    get 'tweets', to: 'users#tweets'
+  end
 
   root to: 'tweets#index'
 

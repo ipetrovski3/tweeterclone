@@ -1,11 +1,6 @@
 <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
   <div class="navbar-brand ">
     <%= link_to (image_tag 'logo1', size: "230x350"), root_path %>
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
   </div>
 
   <div class="navbar-end">
@@ -13,14 +8,16 @@
       <%= link_to new_tweet_path do %>
         <button class="button is-primary is-inverted navbar-item mr-3">New tweet <span class="icon is-small ml-1"><i class="fa fa-plus-circle" aria-hidden="true"></i></span></button>
       <% end %>
-    <div class="navbar-item has-dropdown is-hoverable">
+    <div class="navbar-item has-dropdown is-hoverable pr-4">
       <%= link_to user_path(current_user) do %>
         <div class="navbar-link"><%= current_user.name %><span class="icon is-small ml-1"><i class="fa fa-user" aria-hidden="true"></i></span></div>
       <% end %>
 
     <div class="navbar-dropdown">
       <div class="navbar-item">
+       <%= link_to user_tweets_path(current_user) do %>
         My tweets <span class="tag is-success is-light ml-1"><%= current_user.tweets.count %></span>
+       <% end %>
       </div>
       <div class="navbar-item">
         <%= link_to edit_user_path(current_user) do %>
@@ -36,9 +33,11 @@
     </div>
 
     <% else %>
-    <div class="buttons">
-      <button class="button is-primary is-inverted"><%= link_to 'Login', login_path %></button>
-      <button class="button is-primary is-inverted"><%= link_to 'Sign Up', new_user_path %></button>
+    <div class="navbar-item">
+      <div class="buttons">
+        <button class="button is-primary is-inverted"><%= link_to 'Login', login_path %></button>
+        <button class="button is-primary is-inverted"><%= link_to 'Sign Up', new_user_path %></button>
+      </div>
     </div>
     <% end %>
   </div>
