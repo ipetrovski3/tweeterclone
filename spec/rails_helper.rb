@@ -8,6 +8,7 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'support/factory_bot'
 require 'support/shoulda_matchers'
+require 'helpers/user_helper'
 
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -64,4 +65,5 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.include UserHelper
 end

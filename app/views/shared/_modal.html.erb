@@ -15,18 +15,12 @@
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="button is-danger" data-dismiss="modal"><%= link_to "Yes", tweet_path, method: :delete %></button>
+          <% if logged_in? && equal_with_current_user?(@tweet.user) %>
+            <button type="button" class="button is-danger" data-dismiss="modal"><%= link_to "Yes", tweet_path, method: :delete %></button>
 
-          <button type="button" class="button is-success is-info" data-dismiss="modal">No</button>
+            <button type="button" class="button is-success is-info" data-dismiss="modal">No</button>
+            <% end %>
         </div>
       </div>
     </div>
   </div>
-
-<script>
-$(document).ready(function(){
-  $("#myBtn").click(function(){
-    $("#myModal").modal();
-  });
-});
-</script>
