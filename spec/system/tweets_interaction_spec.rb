@@ -12,7 +12,9 @@ RSpec.describe 'TweetsInteraction' do
   describe 'Creating an tweet' do
     it 'creates and shows the newly created tweet' do
     
-      click_on 'New tweet '
+      # click_on 'New tweet '
+      # click_link 'new-tweet'
+      click_link 'new-id'
 
       within('form') do
         fill_in 'Title', with: title
