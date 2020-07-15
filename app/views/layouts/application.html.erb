@@ -16,22 +16,21 @@
   <body>
     <%= render 'shared/navbar' %>
 
-
-      <section class="section">
-        <div class="container">
-          <%= render 'shared/flash' %>
-          <%= yield %>
-        </div>
-      </section>
-      <footer class="footer has-background-primary">
-        <div class="content has-text-centered">
-          <p>
-            <strong>© Igor Petrovski 2020</strong>
-          </p>
-          <p>
+    <section class="section">
+      <div class="container">
+        <%= render 'shared/flash' %>
+        <%= yield %>
+      </div>
+    </section>
+    <footer class="footer has-background-primary">
+      <div class="content has-text-centered">
+        <p>
+          <strong>© Igor Petrovski 2020</strong>
+        </p>
+        <p>
           <i class="far fa-envelope"></i>
           ipetrovski3@gmail.com
-          </p>
-        </div>
-        </footer>
+        </p>
+      </div>
+    </footer>
   </body>

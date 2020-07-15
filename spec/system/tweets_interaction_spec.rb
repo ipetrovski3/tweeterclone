@@ -11,11 +11,11 @@ RSpec.describe 'TweetsInteraction' do
 
   describe 'Creating an tweet' do
     it 'creates and shows the newly created tweet' do
-    
       # click_on 'New tweet '
       # click_link 'new-tweet'
       click_link 'new-id'
 
+      body = "Testing with RSpec"
       within('form') do
         fill_in 'Title', with: title
         fill_in 'Body', with: body
@@ -31,7 +31,7 @@ RSpec.describe 'TweetsInteraction' do
   describe 'Editing an tweet' do
 
   end
-  
+
   describe 'Deleting a tweet' do
 
   end
