@@ -20,6 +20,12 @@
        <% end %>
       </div>
       <div class="navbar-item">
+        <%= link_to user_path(current_user) do %>
+        My Profile <%= image_tag current_user.profile_picture, class:"i m-1" %>
+        <% end %>
+      </div>
+
+      <div class="navbar-item">
         <%= link_to edit_user_path(current_user) do %>
           Edit Profile<span class="icon is-small has-text-info ml-1"><i class="fa fa-cog" aria-hidden="true"></i></span>
         <% end %>

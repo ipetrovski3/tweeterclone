@@ -6,9 +6,17 @@
   </div>
 </section>
 <br>
- 
+
 <div class="columns is-half is-offset-one-quarter">
+
   <div class="column is-half is-offset-one-quarter">
+
+    <% if @user.profile_picture.present? %>
+    <figure class="image is-128x128 has-image-centered">
+     <%= image_tag @user.profile_picture %>
+     <% end %>
+    </figure>
+
       <article class="tile is-child notification">
         <div class="content">
           <% if local_assigns[:new] %>
@@ -43,6 +51,11 @@
             </div>
 
             <div class='field'>
+              <%= form.label :profile_picture, class:"label" %>
+              <%= form.file_field :profile_picture, class:"input" %>
+            </div>
+
+            <div class='field'>
               <%= form.label :password, class:"label" %>
                 <div class='control has-icons-left'>
                     <%= form.password_field :password, class:"input", placeholder: "Password" %>
@@ -63,7 +76,7 @@
                     <% if @user.errors.any? %>
                       <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
                         <p class="help is-danger"><%= msg %></p>
-                    <% end %>
+                     <% end %>
                       <% end %>
                 </div>
             </div>
@@ -72,7 +85,6 @@
               <%= form.submit submit, class: "button is-success is-info" %>
               <button class="button is-link is-outlined is-info"><%= link_to 'Cancel', root_path %></button>
             </div>
-
             <% end %>
       </article>
     </div>

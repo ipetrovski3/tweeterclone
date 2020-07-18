@@ -39,7 +39,7 @@
             <%= @tweet.likes.count %>
 
             <% @tweet.likes.each do |l| %>
-            <%= l.user.name %>
+            <ul><%= l.user.name %></ul>
             <% end %>
           </div>
         </div>

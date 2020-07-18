@@ -46,7 +46,7 @@ class TweetsController < ApplicationController
     session_notice(:danger, 'You must be logged in!') unless logged_in?
 
     tweet = Tweet.find(params[:id])
-    
+
     if logged_in?
       tweet.destroy
       redirect_to tweets_path
@@ -62,4 +62,3 @@ class TweetsController < ApplicationController
   end
 
 end
-

@@ -11,7 +11,12 @@
     </section>
  <br>
     <% @tweets.each do |tweet| %>
-     <ul> <div class="control has-icons-right"> <%= link_to tweet.title, tweet_path(tweet), class:"input"%>
+     <ul> <div class="control has-icons-right has-icons-left"> <%= link_to tweet.title, tweet_path(tweet), class:"input"%>
+     <% if tweet.user.profile_picture.present? %>
+    <span class="icon is-left">
+     <%= image_tag tweet.user.profile_picture, class:"i m-2" %>
+     <% end %>
+    </span>
       <span class="icon is-right has-text-dark mr-2">  <i class="fas fa-comments mr-1"></i> <%= tweet.comments.count %></span> </ul>
       <% end%>
       </div>

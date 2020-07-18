@@ -4,6 +4,14 @@
       <div class="hero-body has-text-centered">
         <div class="container">
           <h1 class="title">
+              <% if @user.profile_picture.present? %>
+    <p>
+    <figure class="image is-128x128 has-image-centered">
+     <%= image_tag @user.profile_picture, class: "is-rounded" %>
+     <% end %>
+    </figure>
+    </p>
+
             <strong> <%= @user.name %></strong>
           </h1>
           <p><%= @user.email %></p>
@@ -12,4 +20,3 @@
     </section>
   </div>
 </div>
-
