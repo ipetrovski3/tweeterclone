@@ -39,7 +39,8 @@
             <%= @tweet.likes.count %>
 
             <% @tweet.likes.each do |l| %>
-            <ul><%= l.user.name %></ul>
+            <ul><%= image_tag l.user.profile_picture.variant(resize_to_limit: [25, nil]) %>
+            <%= l.user.name %></ul>
             <% end %>
           </div>
         </div>
