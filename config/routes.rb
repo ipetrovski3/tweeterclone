@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  post 'tweets/like/:tweet_id', to: 'likes#save_like', as: :like_tweet
+  post 'tweets/like/:tweet_id', to: 'likes#like', as: :like
+  delete 'tweets/like/:tweet_id', to: 'likes#unlike', as: :unlike
   resources :tweets do
     resources :comments
   end

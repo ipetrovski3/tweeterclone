@@ -1,7 +1,11 @@
 class LikesController < ApplicationController
-  def save_like
-    @like = Like.new(tweet_id: params[:tweet_id], user_id: current_user.id)
-    @like.save
+  def like
+    @tweet = Tweet.find(params[:tweet_id])
+    redirect_to @tweet if @tweet.likes.where(user_id: current_user.id).first_or_create
+  end
 
+  def unlike
+    @tweet = Tweet.find(params[:tweet_id])
+    redirect_to @tweet if @tweet.likes.where(user_id: current_user.id).destroy_all
   end
 end

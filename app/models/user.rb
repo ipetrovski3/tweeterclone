@@ -17,6 +17,10 @@ class User < ApplicationRecord
                     uniqueness: true
   validates :password, length: { minimum: 6 }
 
+  def likes?(tweet)
+    tweet.likes.where(user_id: id).any?
+  end
+
   private
 
   def email_to_downcase
