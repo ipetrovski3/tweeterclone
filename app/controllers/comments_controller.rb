@@ -37,10 +37,9 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    @tweet = @comment.tweet
 
     if @comment.update(comment_params)
-      redirect_to @tweet
+      redirect_to @comment.tweet
     else
       render :edit
     end
