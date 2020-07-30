@@ -24,7 +24,6 @@ class TweetsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def edit
@@ -60,5 +59,4 @@ class TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:title, :body)
   end
-
 end
