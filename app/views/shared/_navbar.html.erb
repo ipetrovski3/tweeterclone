@@ -1,4 +1,7 @@
 <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand ">
+    <%= link_to (image_tag 'logo1', size: "230x350"), root_path %>
+  </div>
 
   <div class="navbar-end">
     <% if logged_in? %>
@@ -19,9 +22,7 @@
       <div class="navbar-item">
         <%= link_to user_path(current_user) do %>
         My Profile
-          <% if current_user.profile_picture.present? %>
-            <%= image_tag current_user.profile_picture, class:"i round m-1" %>
-          <% end %>
+        <%= image_tag current_user.profile_picture, class:"i round m-1" %>
         <% end %>
       </div>
 
