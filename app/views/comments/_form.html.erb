@@ -1,15 +1,9 @@
 <article class="media">
   <div class="media-content">
   <%= form_with model: [tweet, comment], local: true do |form|  %>
-  <div class="field">
-      <p class="control">
-      <%= current_user.name %>
-      </p>
-    </div>
     <div class="field">
       <p class="control">
-        <%= form.label :body, class:"label" %>
-        <%= form.text_field :body, class: "textarea is-rounded", placeholder: "Your comment here!" %>
+        <%= form.text_field :body, class: "textarea", placeholder: "Your comment here!" %>
           <% if comment.errors.any? %>
               <% comment.errors.full_messages_for(:body).each do |msg| %>
                   <p class="help is-danger"><%= msg %></p>

@@ -19,6 +19,16 @@ a, a:visited, a:active {
 }
 
 .section {
-  background-color: rgb(227, 238, 240);
+  background-color: rgb(255, 255, 255);
   min-height: 100vh;
+}
+
+.image {
+  border-radius: 50%;
+  max-block-size: 100%;
+}
+
+
+.author {
+  color: lighten($color: #b1b1b1, $amount: 0);
 }
