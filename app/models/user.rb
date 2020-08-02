@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_one_attached :profile_picture
 
+  has_many :messages, class_name: 'Message', foreign_key: 'receiver'
+  has_many :sent_messages, class_name: 'Message', foreign_key: 'sender'
+
   before_save :email_to_downcase
 
   validates :name, presence: true, length: { maximum: 255 }

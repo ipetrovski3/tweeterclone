@@ -14,7 +14,7 @@
      <ul>
       <div class="card-header">
         <% if tweet.user.profile_picture.present? %>
-          <span class="icon image mr-3"><%= image_tag tweet.user.profile_picture, class:"image" %></span>
+          <span class="icon image mr-3"><%= link_to image_tag(tweet.user.profile_picture, class:"image"), user_path(tweet.user) %></span>
         <% end %>
         <strong><%= link_to tweet.title, tweet_path(tweet), class:"mr-5"%></strong>
         <span class="icon has-text-dark ml-5"> <i class="fas fa-comments mr-2"></i> <%= tweet.comments.count %></span>
