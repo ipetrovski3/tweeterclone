@@ -1,35 +1,29 @@
 class MessagesController < ApplicationController
-  before_action :set_receiver
 
-  def index
-    @messages = current_user.messages
+  before_action do
+    @conversation = Conversation.find(params[:conversation_id])
   end
 
-  def new
-    @message = current_user.sent_messages.new
+  def index
+    @messages = @conversation.messages
+
+    @messages.where("user_id != ? AND read = ?", current_user.id, false).update_all(read: true)
+
+    @message = @conversation.messages.new
   end
 
   def create
-    @message = current_user.sent_messages.new(message_params)
-    @message.save
-  end
+    @message = @conversation.messages.new(message_params)
+    @message.user = current_user
 
-  def show
-    @message = current_user.messages.find(params[:id])
+    if @message.save
+      redirect_to conversation_messages_path(@conversation)
+    end
   end
-
-  def destroy
-    message = current_user.messages.delete(params[:id])
-  end
-
 
   private
 
   def message_params
-    params.require(:message).permit(:subject, :content, :receiver, :sender)
-  end
-
-  def set_receiver
-    @receiver = User.find(params[:id])
+    params.require(:message).permit(:body, :user_id)
   end
 end

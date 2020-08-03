@@ -17,6 +17,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @conversation = Conversation.where(sender_id: current_user, receiver_id: @user).first_or_create
+
+
   end
 
   def edit

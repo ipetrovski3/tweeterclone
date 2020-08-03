@@ -1,0 +1,33 @@
+<div class="columns is-mobile">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <ul>
+      <article class="message is-info">
+          <% @messages.each do |message| %>
+            <% if message.body %>
+                <li>
+              <div class="message-header">
+                  <%= message.user.name %>
+                  <%= image_tag(message.user.profile_picture, size:"25x25" ,class:"image") if message.user.profile_picture.present? %>
+
+              </div>
+              <div class="message-body">
+                  <p><%= message.body %></p>
+                  <small class="messagetime"><%= time_ago_in_words(message.created_at)%> ago</small>
+              </div>
+                </li>
+            <% end %>
+          <% end %>
+      </article>
+    </ul>
+
+    <%= form_for [@conversation, @message] do |f| %>
+      <div class="field">
+        <%= f.text_area :body, placeholder: "Your message", class:"input is-info" %>
+      </div>
+
+      <%= f.submit "Send", class:"button is-info" %>
+      <%= link_to "Back", conversations_path(current_user), class:"button is-info is-inverted" %>
+    <% end %>
+
+  </div>
+</div>

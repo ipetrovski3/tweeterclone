@@ -20,9 +20,16 @@
        <% end %>
       </div>
       <div class="navbar-item">
+       <%= link_to conversations_path(current_user) do %>
+        Messages
+       <% end %>
+      </div>
+      <div class="navbar-item">
         <%= link_to user_path(current_user) do %>
         My Profile
-        <%= image_tag current_user.profile_picture, class:"i round m-1" %>
+        <% if current_user.profile_picture.present?  %>
+          <%= image_tag current_user.profile_picture, class:"i round m-1" %>
+        <% end %>
         <% end %>
       </div>
 
