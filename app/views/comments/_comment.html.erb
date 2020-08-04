@@ -1,28 +1,29 @@
-  <div class="column is-6 is-offset-3">
-    <div class="content is-size-3">
-      <article class="media is-size-6">
-        <div class="media-content">
-          <div class="content">
-            <p>
+  
+<div class="column is-6 is-offset-3">
+  <div class="content is-size-3">
+    <article class="media is-size-6">
+      <div class="media-content">
+        <div class="content">
+          <p>
             <strong><%= comment.user.name %></strong> <small><%= time_ago_in_words(comment.created_at) %> ago </small>
-            </p>
-            <p>
+          </p>
+          <p>
             <%= comment.body %>
-            </p>
-          </div>
-          <% if equal_with_current_user?(comment.user) %>
+          </p>
+        </div>
+        <% if equal_with_current_user?(comment.user) %>
           <nav class="level is-mobile">
             <div class="level-left">
               <%= link_to edit_tweet_comment_path(comment.tweet, comment), class:"level-item" do %>
-               <span class="icon is-small"><i class="fas fa-edit"></i></span>
+                <span class="icon is-small"><i class="fas fa-edit"></i></span>
               <% end %>
               <%= link_to tweet_comment_path(comment.tweet, comment), class:"level-item", method: :delete, data: { confirm: "Are you sure?"} do %>
                 <span class="icon is-small"><i class="far fa-trash-alt"></i></span>
               <% end  %>
             </div>
           </nav>
-          <% end %>
-        </div>
-      </article>
-    </div>
+        <% end %>
+      </div>
+    </article>
   </div>
+</div>

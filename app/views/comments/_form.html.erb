@@ -1,24 +1,23 @@
 <article class="media">
   <div class="media-content">
-  <%= form_with model: [tweet, comment], local: true do |form|  %>
-    <div class="field">
-      <p class="control">
-        <%= form.text_field :body, class: "textarea", placeholder: "Your comment here!" %>
+    <%= form_with model: [tweet, comment], local: true do |form|  %>
+      <div class="field">
+        <p class="control">
+          <%= form.text_field :body, class: "textarea", placeholder: "Your comment here!" %>
           <% if comment.errors.any? %>
-              <% comment.errors.full_messages_for(:body).each do |msg| %>
-                  <p class="help is-danger"><%= msg %></p>
-              <% end %>
+            <% comment.errors.full_messages_for(:body).each do |msg| %>
+              <p class="help is-danger"><%= msg %></p>
+            <% end %>
           <% end %>
-      </p>
-    </div>
-    <nav class="level">
-      <div class="level-right">
-        <%= form.submit submit, class: "button is-success is-info" %>
-         <%= link_to 'Cancel', tweet_path(tweet), class: "button is-light" %>
-          <% end %>
-        </div>
+        </p>
       </div>
-    </nav>
-  </div>
-
+      <nav class="level">
+        <div class="level-right">
+          <%= form.submit submit, class: "button is-success is-info" %>
+          <%= link_to 'Cancel', tweet_path(tweet), class: "button is-light" %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
+</div>
 </article>

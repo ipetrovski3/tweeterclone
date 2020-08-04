@@ -15,7 +15,12 @@ a, a:visited, a:active {
 }
 
 .footer {
- height: inherit;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #dce4ec;
+  text-align: center;
 }
 
 .section {
@@ -31,4 +36,12 @@ a, a:visited, a:active {
 
 .author {
   color: lighten($color: #b1b1b1, $amount: 0);
+}
+
+.navbar {
+  background: #dce4ec;
+}
+
+.white {
+  color: white;
 }

@@ -1,43 +1,39 @@
-<section class="hero is-primary">
+<section class="hero is-success is-fullheight">
   <div class="hero-body">
-      <h1 class="title has-text-centered">
-        Log in
-      </h1>
-  </div>
-</section>
-<br>
-<div class="columns is-half is-offset-one-quarter">
-  <div class="column is-half is-offset-one-quarter">
-        <article class="tile is-child notification">
-          <div class="content">
-          <p class="heading"> Please fill up the form for login! </p>
-
-            <%= form_with url: login_path, scope: :session, local: true do |form| %>
-
-              <div class='field'>
-                <%= form.label :email, class:"label" %>
-                  <div class='control has-icons-left'>
-                    <%= form.email_field :email, class:"input", placeholder: "Email" %>
-                     <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
-                  </div>
+    <div class="container has-text-centered">
+      <div class="column is-4 is-offset-4">
+        <h3 class="title has-text-black">Login</h3>
+        <hr class="login-hr">
+        <p class="subtitle has-text-black">Please login to proceed.</p>
+        <div class="box">
+          <figure class="avatar">
+            <img src="https://placehold.it/128x128">
+          </figure>
+          <%= form_with url: login_path, scope: :session, local: true do |form| %>
+            <div class='field'>
+              <%= form.label :email, class:"label" %>
+              <div class='control has-icons-left'>
+                <%= form.email_field :email, class:"input is-large", placeholder: "Email" %>
+                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
               </div>
-
-              <div class='field'>
-                <%= form.label :password, class:"label" %>
-                  <div class='control has-icons-left'>
-                      <%= form.password_field :password, class:"input", placeholder: "Password" %>
-                      <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                  </div>
+            </div>
+            <div class='field'>
+              <%= form.label :password, class:"label" %>
+              <div class='control has-icons-left'>
+                <%= form.password_field :password, class:"input is-large", placeholder: "Password" %>
+                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
               </div>
-
-              <div class='control'>
-                <%= form.submit "Log in", class: "button is-info" %>
-                <button class="button is-link is-outlined is-info"><%= link_to 'Cancel', root_path %></button>
-              </div>
-
-            <% end %>
-        </article>
+            </div>
+            <%= form.submit "Log in", class: "button is-block is-info is-large is-fullwidth" %>
+          <% end %>
+        </div>
+        <p class="has-text-grey">
+          <%= link_to 'Create Account', new_user_path %> &nbsp;·&nbsp;
+          <a href="../">Forgot Password</a> &nbsp;·&nbsp;
+          <a href="../">Need Help?</a>
+        </p>
+      </div>
     </div>
   </div>
-</div>
-
+</section>
+<script async type="text/javascript" src="../js/bulma.js"></script>

@@ -1,92 +1,75 @@
-<section class="hero is-primary">
+<section class="hero is-success is-fullheight">
   <div class="hero-body">
-      <h1 class="title has-text-centered">
-        <%= title %>
-      </h1>
-  </div>
-</section>
-<br>
-
-<div class="columns is-half is-offset-one-quarter">
-
-  <div class="column is-half is-offset-one-quarter">
-
-    <% if @user.profile_picture.present? %>
-    <figure class="image is-128x128 has-image-centered">
-     <%= image_tag @user.profile_picture %>
-     <% end %>
-    </figure>
-
-      <article class="tile is-child notification">
-        <div class="content">
-          <% if local_assigns[:new] %>
-        <p class="heading"> Please fill up the form for registration! </p>
-          <% end %>
-
+    <div class="container has-text-centered">
+      <div class="column is-4 is-offset-4">
+        <h3 class="title has-text-black"><%= title %></h3>
+        <hr class="login-hr">
+        <p class="subtitle has-text-black"><%= subtitle %></p>
+        <div class="box">
+          <figure class="avatar">
+            <% if @user.profile_picture.present? %>
+              <%= image_tag @user.profile_picture %>
+            <% else %>
+              <%= image_tag 'https://placehold.it/128x128' %>
+            <% end %>
+          </figure>
           <%= form_with model: @user, local: true do |form| %>
             <div class='field'>
-            <%= form.label :name, class:"label" %>
+              <%= form.label :name, class:"label" %>
               <div class='control has-icons-left'>
-              <%= form.text_field :name, class:"input", placeholder: "Your name here!"%>
-              <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
-              <% if @user.errors.any? %>
-            <% @user.errors.full_messages_for(:name).each do |msg| %>
-                <p class="help is-danger"><%= msg %></p>
-              <% end %>
-              <% end %>
+                <%= form.text_field :name, class:"input", placeholder: "Your name here!"%>
+                <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
+                <% if @user.errors.any? %>
+                  <% @user.errors.full_messages_for(:name).each do |msg| %>
+                    <p class="help is-danger"><%= msg %></p>
+                  <% end %>
+                <% end %>
               </div>
             </div>
-
             <div class='field'>
               <%= form.label :email, class:"label" %>
-                <div class='control has-icons-left'>
-                  <%= form.email_field :email, class:"input", placeholder: "Email" %>
-                    <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
-                    <% if @user.errors.any? %>
-            <% @user.errors.full_messages_for(:email).each do |msg| %>
-                <p class="help is-danger"><%= msg %></p>
-              <% end %>
-              <% end %>
-                </div>
+              <div class='control has-icons-left'>
+                <%= form.email_field :email, class:"input", placeholder: "Email" %>
+                <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                <% if @user.errors.any? %>
+                  <% @user.errors.full_messages_for(:email).each do |msg| %>
+                    <p class="help is-danger"><%= msg %></p>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
-
             <div class='field'>
               <%= form.label :profile_picture, class:"label" %>
-              <%= form.file_field :profile_picture, class:"input" %>
+              <%= form.file_field :profile_picture, class:"file-label" %>
             </div>
-
             <div class='field'>
               <%= form.label :password, class:"label" %>
-                <div class='control has-icons-left'>
-                    <%= form.password_field :password, class:"input", placeholder: "Password" %>
-                    <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
-                        <% if @user.errors.any? %>
-                          <% @user.errors.full_messages_for(:password).each do |msg| %>
-                          <p class="help is-danger"><%= msg %></p>
-                        <% end %>
-                          <% end %>
-
-                </div>
+              <div class='control has-icons-left'>
+                <%= form.password_field :password, class:"input", placeholder: "Password" %>
+                <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+                <% if @user.errors.any? %>
+                  <% @user.errors.full_messages_for(:password).each do |msg| %>
+                    <p class="help is-danger"><%= msg %></p>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
-
             <div class='field'>
               <%= form.label :password_confirmation, class:"label" %>
-                <div class='control'>
-                  <%= form.password_field :password_confirmation, class:"input", placeholder: "Confirm password" %>
-                    <% if @user.errors.any? %>
-                      <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
-                        <p class="help is-danger"><%= msg %></p>
-                     <% end %>
-                      <% end %>
+              <div class='control'>
+                <%= form.password_field :password_confirmation, class:"input", placeholder: "Confirm password" %>
+                <% if @user.errors.any? %>
+                  <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
+                    <p class="help is-danger"><%= msg %></p>
+                  <% end %>
+                <% end %>
+                <div class='buttons mt-3'>
+                  <%= form.submit submit, class: "button is-info" %>
+                  <button class="button is-link is-outlined is-info"><%= link_to 'Cancel', root_path %></button>
                 </div>
+              <% end %>
             </div>
-
-            <div class='control'>
-              <%= form.submit submit, class: "button is-success is-info" %>
-              <button class="button is-link is-outlined is-info"><%= link_to 'Cancel', root_path %></button>
-            </div>
-            <% end %>
-      </article>
-    </div>
-  </div>
-</div>
+          </div>
+        </div>
+      </div>
+    </section>

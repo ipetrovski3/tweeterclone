@@ -1,25 +1,28 @@
-<div class="columns is-multiline">
-  <div class="column is-half is-offset-one-quarter">
-    <section class="hero is-primary">
-      <div class="hero-body has-text-centered">
-        <div class="container">
-          <h1 class="title">
-            <strong> You have <%= pluralize(Tweet.count, "Tweet") %></strong>
-          </h1>
-        </div>
-      </div>
-    </section>
- <br>
-    <% @tweets.each do |tweet| %>
-     <ul>
-      <div class="card-header">
-        <% if tweet.user.profile_picture.present? %>
-          <span class="icon image mr-3"><%= link_to image_tag(tweet.user.profile_picture, class:"image"), user_path(tweet.user) %></span>
-        <% end %>
-        <strong><%= link_to tweet.title, tweet_path(tweet), class:"mr-5"%></strong>
-        <span class="icon has-text-dark ml-5"> <i class="fas fa-comments mr-2"></i> <%= tweet.comments.count %></span>
-      </div>
-         <span class="author ml-5"><small>Posted by: <%= tweet.user.name %> | <%= time_ago_in_words(tweet.created_at) %> ago </small></span>
-        <% end%>
+<div class="columns is-centered">
+  <div class="column is-6">
+    <div class="box content">
+      <% @tweets.each do |tweet| %>
+        <article class="post">
+          <p> <small>Posted by: <%= tweet.user.name %> | <%= time_ago_in_words(tweet.created_at) %> ago</small></p>
+          <div class="media">
+            <div class="media-left">
+              <p class="image is-32x32">
+                <% if tweet.user.profile_picture.present? %>
+                  <%= link_to image_tag(tweet.user.profile_picture, class:"image"), user_path(tweet.user) %>
+                <% end %>
+              </p>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <h2><%= link_to tweet.title, tweet_path(tweet) %></h2>
+              </div>
+            </div>
+            <div class="media-right">
+              <span class="has-text-grey-light"><i class="fas fa-comments"></i> <%= tweet.comments.count %></span>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -1,18 +1,14 @@
 <div class="columns is-multiline">
   <div class="column is-6 is-offset-3">
-
-  <% if @comments.count > 3  %>
-    <article class="message is-small is-danger has-text-centered">
-      <div class="message-body">
-        <strong>🔥🔥🔥 This tweet is very popular 🔥🔥🔥</strong>
-      </div>
-    </article>
-  <% end %>
-
+    <% if @comments.count > 3  %>
+      <article class="message is-small is-danger has-text-centered">
+        <div class="message-body">
+          <strong>🔥🔥🔥 This tweet is very popular 🔥🔥🔥</strong>
+        </div>
+      </article>
+    <% end %>
     <%= render @tweet %>
-
     <h3 class="subtitle is-4">Comments:</h3>
     <%= render @comments %>
-
-   </div>
+  </div>
 </div>

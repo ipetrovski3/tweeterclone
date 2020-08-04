@@ -4,33 +4,29 @@
     <title>Twitterclone</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   </head>
-
   <body>
-    <%= render 'shared/navbar' %>
-
-    <section class="section">
-      <div class="container">
-        <%= render 'shared/flash' %>
-        <%= yield %>
-      </div>
+    <section class="container">
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flash' %>
+      <%= yield %>
+      <footer class="footer">
+        <div class="container">
+          <div class="content has-text-centered">
+            <p>
+              <strong>© Igor Petrovski 2020</strong>
+            </p>
+            <p>
+              <i class="far fa-envelope"></i>
+              ipetrovski3@gmail.com
+            </p>
+          </div>
+        </div>
+      </footer>
     </section>
-    <footer class="footer has-background-primary">
-      <div class="content has-text-centered">
-        <p>
-          <strong>© Igor Petrovski 2020</strong>
-        </p>
-        <p>
-          <i class="far fa-envelope"></i>
-          ipetrovski3@gmail.com
-        </p>
-      </div>
-    </footer>
   </body>

@@ -1,9 +1,10 @@
-    <div class="columns is-half is-offset-one-quarter">
-      <div class="column is-half is-offset-one-quarter">
-        <% flash.each do |name, msg| %>
-          <div class="notification is-<%= name %> has-text-centered">
-            <%= msg %>
-          </div>
-        <% end %>
+    
+<div class="columns is-half is-offset-one-quarter">
+  <div class="column is-half is-offset-one-quarter">
+    <% flash.each do |name, msg| %>
+      <div class="notification is-<%= name %> has-text-centered">
+        <%= msg %>
       </div>
-    </div>
+    <% end %>
+  </div>
+</div>

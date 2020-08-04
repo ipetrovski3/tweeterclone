@@ -1,24 +1,28 @@
-<div class="columns is-multiline">
-  <div class="column is-half is-offset-one-quarter">
-    <section class="hero is-primary">
-      <div class="hero-body has-text-centered">
-        <div class="container">
-          <% if current_user %>
-          <h1 class="title">
-            <strong> <%= "#{@user.name} Tweets:" %></strong>
-          </h1>
-          <% end %>
-          <h2 class="title">
-            <strong> You have <%= pluralize(@user.tweets.count, "Tweet") %></strong>
-          </h2>
+<div class="columns is-centered">
+  <div class="column is-6">
+    <div class="box content">
+      <% @user.tweets.each do |tweet| %>
+      <article class="post">
+       <p> <small>Posted by: <%= tweet.user.name %> | <%= time_ago_in_words(tweet.created_at) %> ago</small></p>
+        <div class="media">
+          <div class="media-left">
+            <p class="image is-32x32">
+              <% if tweet.user.profile_picture.present? %>
+                <%= link_to image_tag(tweet.user.profile_picture, class:"image"), user_path(tweet.user) %>
+              <% end %>
+            </p>
+          </div>
+          <div class="media-content">
+            <div class="content">
+                    <h2><%= link_to tweet.title, tweet_path(tweet) %></h2>
+            </div>
+          </div>
+          <div class="media-right">
+            <span class="has-text-grey-light"><i class="fas fa-comments"></i> <%= tweet.comments.count %></span>
+          </div>
         </div>
-      </div>
-    </section>
- <br>
-    <% @user.tweets.each do |tweet| %>
-     <ul> <div class="control has-icons-right"> <%= link_to tweet.title, tweet_path(tweet), class:"input"%>
-      <span class="icon is-right has-text-dark mr-2">  <i class="fas fa-comments mr-1"></i> <%= tweet.comments.count %></span> </ul>
-      <% end%>
-      </div>
+      </article>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -1,26 +1,23 @@
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Delete</h4>
-          <button type="button" class="close" data-dismiss="modal">×</button>
-        </div>
-
-        <!-- Modal body -->
-        <div class="modal-body">
-          Are you sure you want to delete?
-        </div>
-
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <% if logged_in? && equal_with_current_user?(@tweet.user) %>
-            <button type="button" class="button is-danger" data-dismiss="modal"><%= link_to "Yes", tweet_path, method: :delete %></button>
-
-            <button type="button" class="button is-success is-info" data-dismiss="modal">No</button>
-            <% end %>
-        </div>
+  
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Delete</h4>
+        <button type="button" class="close" data-dismiss="modal">×</button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        Are you sure you want to delete?
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <% if logged_in? && equal_with_current_user?(@tweet.user) %>
+          <button type="button" class="button is-danger" data-dismiss="modal"><%= link_to "Yes", tweet_path, method: :delete %></button>
+          <button type="button" class="button is-success is-info" data-dismiss="modal">No</button>
+        <% end %>
       </div>
     </div>
   </div>
+</div>

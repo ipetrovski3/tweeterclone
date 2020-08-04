@@ -1,58 +1,62 @@
-<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand ">
-    <%= link_to (image_tag 'https://twiitermk.s3.eu-central-1.amazonaws.com/logo1.png', size: "230x350"), root_path %>
-  </div>
-
-  <div class="navbar-end">
-    <% if logged_in? %>
-      <%= link_to new_tweet_path, id:"new-id" do %>
-        <button class="button is-primary is-inverted navbar-item mr-3" id="new-tweet">New tweet<span class="icon is-small ml-1"><i class="fa fa-plus-circle" aria-hidden="true"></i></span></button>
-      <% end %>
-    <div class="navbar-item has-dropdown is-hoverable pr-4">
-      <%= link_to user_path(current_user) do %>
-        <div class="navbar-link"><%= current_user.name %><span class="icon is-small ml-1"><i class="fa fa-user" aria-hidden="true"></i></span></div>
-      <% end %>
-
-    <div class="navbar-dropdown">
-      <div class="navbar-item">
-       <%= link_to user_tweets_path(current_user) do %>
-        My tweets <span class="tag is-success is-light ml-1"><%= current_user.tweets.count %></span>
-       <% end %>
-      </div>
-      <div class="navbar-item">
-       <%= link_to conversations_path(current_user) do %>
-        Messages
-       <% end %>
-      </div>
-      <div class="navbar-item">
-        <%= link_to user_path(current_user) do %>
-        My Profile
-        <% if current_user.profile_picture.present?  %>
-          <%= image_tag current_user.profile_picture, class:"i round m-1" %>
-        <% end %>
-        <% end %>
-      </div>
-
-      <div class="navbar-item">
-        <%= link_to edit_user_path(current_user) do %>
-          Edit Profile<span class="icon is-small has-text-info ml-1"><i class="fa fa-cog" aria-hidden="true"></i></span>
-        <% end %>
-      </div>
-      <hr class="navbar-divider">
-      <div class="navbar-item">
-        <%= link_to logout_path, method: :delete do %>
-          Logout<span class="icon is-small has-text-danger ml-1"><i class="fa fa-window-close" aria-hidden="true"></i></span>
-        <% end %>
-      </div>
+<nav class="navbar">
+  <div class="container">
+    <div class="navbar-brand">
+      <%= link_to (image_tag 'https://twiitermk.s3.eu-central-1.amazonaws.com/logo1.png', size: "230x350", class:"navbar-item"), root_path %>
+      <span class="navbar-burger burger" data-target="navbarMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
     </div>
-
-    <% else %>
-    <div class="navbar-item">
-      <div class="buttons">
-        <button class="button is-primary is-inverted"><%= link_to 'Login', login_path %></button>
-        <button class="button is-primary is-inverted"><%= link_to 'Sign Up', new_user_path %></button>
+    <div id="navbarMenu" class="navbar-menu">
+      <div class="navbar-end">
+        <% if logged_in? %>
+          <%= link_to new_tweet_path do %>
+            <button class="button navbar-item">New tweet<span class="icon is-small ml-1 mr-1"><i class="fa fa-plus-circle" aria-hidden="true"></i></span></button>
+          <% end %>
+          <div class="navbar-item has-dropdown is-hoverable myprofile">
+            <%= link_to user_path(current_user) do %>
+              <div class="navbar-link white"><%= current_user.name %><span class="icon is-small ml-1"><i class="fa fa-user" aria-hidden="true"></i></span></div>
+            <% end %>
+            <div class="navbar-dropdown">
+              <%= link_to user_tweets_path(current_user), class:"navbar-item" do %>
+                My tweets <span class="tag is-success is-light ml-1"><%= current_user.tweets.count %></span>
+              <% end %>
+              <%= link_to conversations_path(current_user), class:"navbar-item" do %>
+                Messages
+              <% end %>
+              <%= link_to user_path(current_user), class:"navbar-item" do %>
+                My Profile
+                <% if current_user.profile_picture.present?  %>
+                  <%= image_tag current_user.profile_picture, class:"i round ml-1" %>
+                <% end %>
+              <% end %>
+              <%= link_to edit_user_path(current_user), class:"navbar-item" do %>
+                Edit Profile<span class="icon is-small has-text-info ml-1"><i class="fa fa-cog" aria-hidden="true"></i></span>
+              <% end %>
+              <hr class="navbar-divider">
+              <%= link_to logout_path, method: :delete, class:"navbar-item" do %>
+                Logout <span class="icon is-small has-text-danger ml-1"><i class="fa fa-window-close" aria-hidden="true"></i></span>
+              <% end %>
+            <% else %>
+              <div class="navbar-item">
+                <div class="buttons">
+                  <button class="button is-primary is-inverted"><%= link_to 'Login', login_path %></button>
+                  <button class="button is-primary is-inverted"><%= link_to 'Sign Up', new_user_path %></button>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
-    <% end %>
-  </div>
-</nav>
+    </nav>
+    <script>
+      (function() {
+          var burger = document.querySelector('.burger');
+          var menu = document.querySelector('#'+burger.dataset.target);
+          burger.addEventListener('click', function() {
+              burger.classList.toggle('is-active');
+              menu.classList.toggle('is-active');
+          });
+      })();
+    </script>

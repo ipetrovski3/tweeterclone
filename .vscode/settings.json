@@ -1,3 +1,7 @@
 {
+  "files.associations": {
+    "*.erb": "erb"
+  },
   "editor.tabSize": 2
+
 }
