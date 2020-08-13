@@ -40,6 +40,16 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def email_validator
+    if params[:email].size <= 2
+      render json: { valid: false }
+    elsif User.find_by_email(params[:email])
+      render json: { valid: false }
+    else
+      render json: { valid: true }
+    end
+  end
+
   private
 
   def user_params

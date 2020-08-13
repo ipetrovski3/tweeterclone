@@ -13,4 +13,18 @@ height: 150px;
 width: 150px;
 }
 
+.username-icon-styles {
+  font-size: 2em;
+  margin-top: 33px;
+  position: absolute;
+  right: 0;
+  margin-right: 24px;
 
+  #valid-username {
+    color: green;
+  }
+
+  #invalid-username {
+    color: red;
+  }
+}

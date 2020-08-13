@@ -1,2 +1,36 @@
 
 <%= render 'form', title: 'New User', subtitle: 'Please fill up the registration!', submit: 'Create Account' %>
+
+
+
+<script>
+  console.log('Hello')
+(document).ready(function() {
+    $('#invalid-email').hide();
+    $('#valid-email').hide();
+    $('#user_email').on('keyup', function(event) {
+      $.ajax({
+        url: '/email_validator/' + $('#user_email').val(),
+        type: 'GET',
+        dataType: 'json',
+        error: function(jqXHR, textStatus, errorThrown) {},
+        success: function(data, textStatus, jqXHR) {
+          if (data.valid === true) {
+            $('#invalid-email').hide();
+            return $('#valid-email').show();
+          } else if (data.valid === false) {
+            $('#valid-email').hide();
+            return $('#invalid-email').show();
+          }
+        }
+      });
+      event.stopImmediatePropagation();
+      return false;
+    });
+    return false;
+  };
+
+
+}).call(this);
+
+</script>
